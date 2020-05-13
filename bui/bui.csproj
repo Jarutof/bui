@@ -1,0 +1,566 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CE2CD2DA-EC02-435B-A690-25E46D9BE7F0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>bui</RootNamespace>
+    <AssemblyName>bui</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic.Compatibility.Data" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ComPort.cs" />
+    <Compile Include="DataBuffer.cs" />
+    <Compile Include="DataManager.cs" />
+    <Compile Include="Devices\Device_BKN.cs" />
+    <Compile Include="Devices\Device_BV.cs" />
+    <Compile Include="Devices\Device_PDU.cs" />
+    <Compile Include="Exchanger_ComPort.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="GUI\ImageControls\ButtonImage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ImageControls\ButtonImage.Designer.cs">
+      <DependentUpon>ButtonImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ImageControls\ConfirmWindow.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ImageControls\ConfirmWindow.Designer.cs">
+      <DependentUpon>ConfirmWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ExtentionControl.cs" />
+    <Compile Include="GUI\ImageControls\IBitmapable.cs" />
+    <Compile Include="GUI\ImageControls\ImageControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ImageControls\ImageControl.Designer.cs">
+      <DependentUpon>ImageControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ImageControls\IPressable.cs" />
+    <Compile Include="GUI\ImageControls\PanelGetParameter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ImageControls\PanelGetParameter.Designer.cs">
+      <DependentUpon>PanelGetParameter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ImageControls\PanelKeyboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ImageControls\PanelKeyboard.Designer.cs">
+      <DependentUpon>PanelKeyboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ImageControls\PanelMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ImageControls\PanelMenu.Designer.cs">
+      <DependentUpon>PanelMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ImageControls\PanelParams.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ImageControls\PanelParams.Designer.cs">
+      <DependentUpon>PanelParams.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ImageControls\PanelProtection.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ImageControls\PanelProtection.Designer.cs">
+      <DependentUpon>PanelProtection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ImageControls\PanelSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ImageControls\PanelSettings.Designer.cs">
+      <DependentUpon>PanelSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ImageControls\StateImage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ImageControls\StateImage.Designer.cs">
+      <DependentUpon>StateImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ImageControls\LabelImage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ImageControls\LabelImage.Designer.cs">
+      <DependentUpon>LabelImage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ImageControls\PanelSCS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ImageControls\PanelSCS.Designer.cs">
+      <DependentUpon>PanelSCS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Windows\WindowMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Windows\WindowMenu.Designer.cs">
+      <DependentUpon>WindowMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OperationsManager.cs" />
+    <Compile Include="Operations\OperationCalibrationBKN.cs" />
+    <Compile Include="Operations\OperationCheckProtection.cs" />
+    <Compile Include="Operations\OperationClearProtection.cs" />
+    <Compile Include="Operations\OperationKM1StateChange.cs" />
+    <Compile Include="Operations\Operation.cs" />
+    <Compile Include="Operations\OperationBVStateChange.cs" />
+    <Compile Include="Operations\OperationCalibrationBV.cs" />
+    <Compile Include="Operations\OperationKMOff.cs" />
+    <Compile Include="Operations\OperationKMOn.cs" />
+    <Compile Include="Operations\OperationNormalize.cs" />
+    <Compile Include="Operations\OperationOSStateChange.cs" />
+    <Compile Include="Operations\OperationRemoteProtection.cs" />
+    <Compile Include="Operations\OperationSupervisModeChange.cs" />
+    <Compile Include="Operations\OperationWorkModeChange.cs" />
+    <Compile Include="PortProtocol.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Remounter.cs" />
+    <Compile Include="SettingsInfo.cs" />
+    <Compile Include="Version.cs" />
+    <EmbeddedResource Include="GUI\ImageControls\ButtonImage.resx">
+      <DependentUpon>ButtonImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ImageControls\ConfirmWindow.resx">
+      <DependentUpon>ConfirmWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ImageControls\PanelGetParameter.resx">
+      <DependentUpon>PanelGetParameter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ImageControls\PanelKeyboard.resx">
+      <DependentUpon>PanelKeyboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ImageControls\PanelMenu.resx">
+      <DependentUpon>PanelMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ImageControls\PanelParams.resx">
+      <DependentUpon>PanelParams.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ImageControls\PanelProtection.resx">
+      <DependentUpon>PanelProtection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ImageControls\PanelSettings.resx">
+      <DependentUpon>PanelSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ImageControls\StateImage.resx">
+      <DependentUpon>StateImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ImageControls\LabelImage.resx">
+      <DependentUpon>LabelImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ImageControls\PanelSCS.resx">
+      <DependentUpon>PanelSCS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Windows\WindowMenu.resx">
+      <DependentUpon>WindowMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include=".editorconfig" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataExchange\DataExchange.csproj">
+      <Project>{B8E8A703-7188-4D49-85CC-E071BF34847E}</Project>
+      <Name>DataExchange</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\feeder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_window_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\params.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paramerers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings_back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_long_empty_cyan_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_long_empty_cyan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Uset_HL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Uset.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Imax_HL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Imax.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Umin_HL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Umin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Umax_HL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Umax.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Uos_HL.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Uos.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\window_confirm.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scs_prot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scs_bv_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scs_bs_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scs_feeder_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scs_prots.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scs_prot2_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scs_prot1_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scs_prot2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scs_prot1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scs_bv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scs_bus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scs_feeder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scs_bs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scs_bus_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_000.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Input2_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Input2_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Input1_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Input1_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bus_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bus_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\feeder_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\feeder_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_empty_green_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_empty_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_empty_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_empty_big_yellow_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_empty_big_yellow_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_empty_big_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_empty_big_disabled_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_empty_big_green_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_empty_big_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_empty_big_disabled_cyan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_empty_big_cyan_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_empty_big_cyan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_empty_big_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_empty_big.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_empty_big_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menu_back_panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_short_empty_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_short_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\km_off_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\km_off_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\km_on_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\km_on_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\km_on_gray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_long_empty_yellow_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_long_empty_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_long_empty_green_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_long_empty_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_long_empty_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_long_empty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KS_minus_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KS_plus_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KS_rsk_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KS_minus_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KS_plus_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KS_rsk_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KS_minus_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KS_plus_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KS_rsk_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\get_parameter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\radio_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\radio_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\protection_panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign_OS_on.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sign_OS_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\km_off_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\protection_Icon_pressed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\protection_Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_long_empty_yellow_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_long_empty_green_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_long_empty_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_empty_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bv_panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bkn_panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KS_epn_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KS_epn_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KS_epn_off.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_empty_green_disabled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\blocks_shadow2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scs_prot12_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scs_prot22_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scs_prot22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\scs_prot12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1pic.cur" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
